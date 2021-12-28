@@ -1,0 +1,1 @@
+CREATE TABLE commits (commit_id VARCHAR NOT NULL, stamp DATETIME NOT NULL);
