@@ -4,8 +4,6 @@
 
 DB=record.db
 
-{
-echo commit_id,stamp
-git log --format='%H,%aI' --first-parent
-} |
+# commit_id,stamp,author_email
+git log --format='%H,%aI,%aE' --first-parent |
  sqlite3 "$DB" ".import --csv /dev/stdin commits"
