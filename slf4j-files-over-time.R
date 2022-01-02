@@ -10,5 +10,7 @@ data <- dbGetQuery(con, "SELECT CAST(strftime('%s', stamp) AS NUMBER) stamp, val
 data$stamp <- as.POSIXct(data$stamp, origin='1970-01-01')
 
 
-g <- data %>% group_by(year=year(stamp)) %>% summarise(files = median(value)) %>% ggplot(., aes(x=year, y=files)) + geom_line() + ylab('Files referencing SLF4J')
+g <- data %>% group_by(year=year(stamp)) %>% summarise(files = median(value), min_files = min(value), max_files = max(value)) %>%
+ ggplot(., aes(x=year, y=files)) + geom_line() + ylab('Files referencing SLF4J') +
+ geom_ribbon(aes(x=year, ymin=min_files, ymax=max_files), alpha=0.25)
 print(g)
