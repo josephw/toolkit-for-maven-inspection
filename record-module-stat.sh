@@ -3,9 +3,9 @@
 DB=record.db
 
 commit="$(git rev-parse HEAD)"
-module="${1:?Specify module path}"
-stat_name="${2:?Specify statistic name}"
-value="${3:?Specify value}"
+module="${2:?Specify module path}"
+stat_name="${3:?Specify statistic name}"
+value="${4:?Specify value}"
 
 echo "$commit / $module / $stat_name=$value"
 
