@@ -2,7 +2,7 @@
 
 DB=record.db
 
-commit="$(git rev-parse HEAD)"
+commit="${1:-$(git rev-parse HEAD)}"
 module="${2:?Specify module path}"
 stat_name="${3:?Specify statistic name}"
 value="${4:?Specify value}"
