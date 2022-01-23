@@ -20,3 +20,11 @@ CREATE TABLE module_stats (
   value NUMBER NOT NULL,
   PRIMARY KEY (commit_id, module, statistic)
 );
+
+CREATE TABLE maven_dependencies (
+  commit_id VARCHAR NOT NULL,
+  coords VARCHAR NOT NULL,
+  dependency_coords VARCHAR NOT NULL,
+  dependency_version VARCHAR,
+  dependency_scope VARCHAR
+);
