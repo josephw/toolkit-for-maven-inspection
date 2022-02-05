@@ -2,7 +2,7 @@
 
 set -e
 
-DIR="$(dirname "$0")
+DIR="$(dirname "$0")"
 
 mvn dependency:tree -DoutputFile=`pwd`/mvn_dependency_tree.txt -DappendOutput=true -o -DoutputType=text
 

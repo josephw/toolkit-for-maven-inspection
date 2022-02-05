@@ -12,6 +12,6 @@ make it easier to capture once, then query.
 
 ### Usage
 
-1. In a project directory, run `sqlite3 create-schema.sql`
+1. In a project directory, run `sqlite3 record.db <create-schema.sql`
 2. Invoke some of the scripts to capture data about the project
 3. Extract data and plot it
