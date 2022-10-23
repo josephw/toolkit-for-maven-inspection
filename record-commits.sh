@@ -2,7 +2,7 @@
 
 # Get a record of all commits, with dates
 
-DB=record.db
+DB="${1:-record.db}"
 
 # commit_id,stamp,author_email
 git log --format='%H,%aI,%aE' --first-parent |
