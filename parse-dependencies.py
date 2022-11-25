@@ -2,19 +2,20 @@
 
 # Parse the output of:
 #   mvn dependency:tree -DoutputFile=`pwd`/mvn_dependency_tree.txt -DappendOutput=true -o -DoutputType=text
-# and store it in the database
+# and store it in a database
 
 from sys import argv, exit, stdin, stderr
 import re
 from sqlite3 import dbapi2
 
-if len(argv) != 2:
-  print(f'Usage: {argv[0]} <commit ID>', file=stderr)
+if len(argv) != 3:
+  print(f'Usage: {argv[0]} <db> <commit ID>', file=stderr)
   exit(5)
 
-commit_id = argv[1]
+db_path = argv[1]
+commit_id = argv[2]
 
-connection = dbapi2.connect("record.db")
+connection = dbapi2.connect(db_path)
 cursor = connection.cursor()
 
 dl = re.compile(r'^[| ]*(?:\+|\\)- (.*)$')
