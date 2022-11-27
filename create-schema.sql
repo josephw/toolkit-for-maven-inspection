@@ -28,3 +28,10 @@ CREATE TABLE maven_dependencies (
   dependency_version VARCHAR,
   dependency_scope VARCHAR
 );
+
+CREATE TABLE maven_modules (
+  commit_id VARCHAR NOT NULL,
+  coords VARCHAR NOT NULL,
+  path VARCHAR NOT NULL UNIQUE,
+  PRIMARY KEY (commit_id, coords)
+);
