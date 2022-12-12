@@ -64,7 +64,11 @@ while p := next(iter(candidates - attempted), None):
     )
 
     # Find other modules
-    for m in project.xpath("pom:modules/pom:module/text()", namespaces=namespaces):
+    for m in project.xpath(
+        "pom:modules/pom:module/text()", namespaces=namespaces
+    ) + project.xpath(
+        "pom:profiles/pom:profile/pom:modules/pom:module/text()", namespaces=namespaces
+    ):
         log.info("In %s found reference to module %s", p, m)
         candidates.add((Path(p).parent / m / "pom.xml").as_posix())
 
