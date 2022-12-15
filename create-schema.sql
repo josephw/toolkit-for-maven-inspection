@@ -32,6 +32,7 @@ CREATE TABLE maven_dependencies (
 CREATE TABLE maven_modules (
   commit_id VARCHAR NOT NULL,
   coords VARCHAR NOT NULL,
-  path VARCHAR NOT NULL UNIQUE,
-  PRIMARY KEY (commit_id, coords)
+  path VARCHAR NOT NULL,
+  PRIMARY KEY (commit_id, coords),
+  UNIQUE (commit_id, path)
 );
